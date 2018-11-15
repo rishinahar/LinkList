@@ -1,0 +1,164 @@
+boolean checkBinary (Node tree , Node subtree)
+{
+  if (tree == null)
+  {
+      reuturn false ;
+  }
+  if (Subtree == null)
+  {
+      reuturn true ;
+  }
+
+  if (areidentical (tree , subtree))
+  {
+        return true;
+  }
+ 
+ return checkBinary(tree.left , subtree) || checkBinary(tree.right , subtree)
+	
+}
+
+
+boolean areidentical (Node tree , Node subtree)
+{
+	
+	if (tree == null && subtree == null)
+  {
+      reuturn true ;
+  }
+
+
+	if (tree == null || subtree == null)
+  {
+      reuturn false;
+  }
+
+  return (tree.data == subtree.data && areidentical (tree.left , subtree.left) && areidentical (tree.right , subtree.right))
+}
+
+
+int diameteroftree(Node node, Height h)
+
+{
+	if(node == null)
+	{
+      h.height =0;
+	  return 0;
+	}
+
+Height lh = new Height();
+Height rh = new Height();
+
+lh.height = 0;
+rh.height = 0;
+
+int lh = height (node.left)+1;
+int rh = height (node.right)+1;
+
+h = math.max (lh, rh);
+
+return (math.max (, math.max (diameteroftree( node.left,  lh),diameteroftree( node.right,  rh))))
+
+
+
+}
+
+
+
+struct node ** createqueue( int * , int *)
+void enqueue(struct node **, int * ,struct node *)
+struct node * dequeue (struct node **, int * )
+
+void levelorder (struct node* node)
+
+{
+	int front , rear ;
+	struct node ** queue = new createqueue(&front , &rear);
+   
+   struct node * temp = node
+	while (temp)
+	{
+      
+      Printf(" %d" , temp->data)
+
+      if (temp->left)
+         enqueue(queue ,temp->left, &rear );
+      
+      if (temp->right)
+         enqueue(queue ,temp->right, &rear );
+   
+      temp = dequeue(queue , &front);
+
+
+	}
+}
+
+struct node ** createqueue(int *front , int *rear)
+
+{
+	*front =0;
+	*rear=0;
+
+
+	struct node ** queue = (struct node ** ) malloc (sizeof((struct node *)*MaxSize))
+
+return queue;
+}
+
+void enQueue(struct node **queue, int *rear, struct node *new_node)
+{
+	queue[*rear] = new_node;
+	*rear++;
+
+}
+
+struct node *deQueue(struct node **queue, int *front)
+{   *front++;
+	return queue[*front-1];
+
+}
+Node * MergeLists(Node *list1, Node *list2) {
+
+if (!list1)
+{
+	return list2;
+}
+if (!list2)
+{
+	return list1;
+}
+Node *head;
+if (list1->data < list2->data)
+{
+	head = list1;
+
+}
+else 
+head = list1;
+list1 = list2;
+list2 = list1;
+
+}
+
+while (list1->next && list2)
+{
+	if (list1->next->data > list2->data) {
+      Node *tmp = list1->next;
+      list1->next = list2;    
+      list2 = tmp; // list2 is placeholder to keep the large elements found while traversing the list
+
+    }
+    list1 = list1->next;
+  } 
+  if (!list1->next) list1->next = list2;
+  return head;
+}
+
+
+
+
+
+
+
+
+
